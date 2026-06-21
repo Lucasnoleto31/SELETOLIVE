@@ -3,25 +3,57 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* superfícies (dark-first — direção "Energia de Pregão") */
+  --bg: #070a0e;
+  --surface: #0e131a;
+  --border: rgba(255, 255, 255, 0.08);
+  /* neutros (texto) */
+  --text: #f2f5f8;
+  --text-2: #9aa3af;
+  --text-mut: #7e8794;
+  /* marca Zeve */
+  --primary: #1f6bff;
+  --primary-hover: #3d82ff;
+  --on-primary: #ffffff;
+  --accent: #6ea8ff;
+  /* dados de mercado — só para números/gráficos */
+  --up: #1fb877;
+  --down: #ff5a5f;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  html {
+    scroll-behavior: smooth;
   }
-}
-
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  body {
+    background-color: var(--bg);
+    color: var(--text);
+    font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+    font-feature-settings: "tnum";
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display), ui-sans-serif, system-ui, sans-serif;
+    letter-spacing: -0.02em;
+  }
+  ::selection {
+    background: var(--primary);
+    color: var(--on-primary);
+  }
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
   }
 }
