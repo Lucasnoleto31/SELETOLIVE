@@ -46,14 +46,14 @@ const plans = [
   },
   {
     name: "ZEVE",
-    price: "Isento",
-    period: "",
+    price: "R$ 997",
+    period: "/mês",
     altPrice: "",
     forWho: "Para clientes da assessoria Zeve",
-    highlight: "A Zeve banca a sala.",
+    highlight: "Atingiu 3.000 lotes no mês? O próximo mês é financiado pela Zeve.",
     featured: true,
     cta: "Garantir vaga",
-    note: "Isenção mediante critérios internos, a partir de 3.000 lotes operados pela assessoria Zeve.",
+    note: "Ao atingir 3.000 lotes operados no mês pela assessoria Zeve, o mês seguinte é por nossa conta.",
   },
   {
     name: "Público geral",
