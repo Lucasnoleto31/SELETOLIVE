@@ -34,24 +34,37 @@ const bullets = [
 
 const plans = [
   {
-    name: "Sala por nossa conta",
-    price: "R$ 650",
-    period: "/mês",
-    forWho: "Para quem opera pela Zeve",
-    refund: "Os R$ 650 voltam pra você ao girar 3.000 lotes/mês",
-    featured: true,
-    cta: "Garantir vaga",
-    note: "Você paga R$ 650 para entrar na sala e recebe o valor de volta quando bate 3.000 lotes no mês operando pela Zeve.",
+    name: "ZERO7",
+    price: "Gratuito",
+    period: "",
+    altPrice: "",
+    forWho: "Para clientes com conta real ativa",
+    highlight: "Você opera, você entra. Sem mensalidade.",
+    featured: false,
+    cta: "Garantir vaga grátis",
+    note: "Acesso gratuito à Sala AO VIVO enquanto a conta real estiver ativa.",
   },
   {
-    name: "Sala avulsa",
-    price: "R$ 850",
+    name: "ZEVE",
+    price: "Isento",
+    period: "",
+    altPrice: "",
+    forWho: "Para clientes da assessoria Zeve",
+    highlight: "A Zeve banca a sala.",
+    featured: true,
+    cta: "Garantir vaga",
+    note: "Isenção mediante critérios internos, a partir de 3.000 lotes operados pela assessoria Zeve.",
+  },
+  {
+    name: "Público geral",
+    price: "R$ 997",
     period: "/mês",
-    forWho: "Pra quem quer só a sala, sem operar pela Zeve",
-    refund: "",
+    altPrice: "ou R$ 2.497 no trimestre (economia de ~R$ 494)",
+    forWho: "Pra quem ainda não opera pela Genial via Zeve",
+    highlight: "",
     featured: false,
-    cta: "Quero a sala avulsa",
-    note: "Sem necessidade de operar pela Zeve. Valor não reembolsável.",
+    cta: "Quero entrar",
+    note: "Quer parar de pagar? Migre sua conta pra Genial através da Zeve e seu acesso passa a ser bancado por nós.",
   },
 ];
 
@@ -70,12 +83,12 @@ export function Pricing() {
             Escolha como entrar na <span className="text-primary">sala.</span>
           </h2>
           <p className="mt-4 text-body-lg text-fg-soft">
-            Opere pela Zeve e a gente devolve o valor da sala quando você bate a meta.
-            Ou pegue só a sala, avulsa.
+            Se você opera pela Genial através da Zeve, a sala é por nossa conta. Se
+            ainda não opera, entra como público geral e migra quando quiser.
           </p>
         </Reveal>
 
-        <div className="mx-auto mt-12 grid max-w-[860px] gap-5 md:grid-cols-2">
+        <div className="mx-auto mt-12 grid max-w-[1040px] gap-5 md:grid-cols-3">
           {plans.map((p, i) => (
             <Reveal key={p.name} delay={0.06 * i}>
               <div
@@ -106,12 +119,16 @@ export function Pricing() {
                   )}
                 </div>
 
+                {p.altPrice && (
+                  <p className="mt-1.5 text-small text-fg-muted">{p.altPrice}</p>
+                )}
+
                 <p className="mt-2 text-small text-fg-soft">{p.forWho}</p>
 
-                {p.refund && (
+                {p.highlight && (
                   <p className="mt-4 inline-flex items-start gap-2 rounded-card border border-primary/30 bg-primary/10 px-3 py-2 text-small font-medium text-accent">
                     <Check />
-                    {p.refund}
+                    {p.highlight}
                   </p>
                 )}
 

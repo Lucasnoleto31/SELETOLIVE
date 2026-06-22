@@ -34,3 +34,9 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# midia bruta (fonte) — nao publicar: video grande (>100MB) e prints com telefone
+/brand/depvideo.mp4
+/brand/dep1.jpeg
+/brand/dep2.jpeg
+/brand/dep 3.jpeg

@@ -2,17 +2,19 @@
 
 import { motion, useReducedMotion, type Variants } from "framer-motion";
 import { Container } from "@/components/Container";
+import { Button } from "@/components/ui/Button";
+import { WHATSAPP_URL } from "@/lib/contact";
 
 const steps = [
   {
     n: "01",
     t: "Opere ao vivo, junto",
-    d: "O Fabrício abre a tela e opera o pregão em tempo real. Você acompanha cada entrada e saída na hora.",
+    d: "O Fabrício abre a tela e opera o pregão em tempo real. Você acompanha cada entrada e saída na hora, com dinheiro de verdade.",
   },
   {
     n: "02",
-    t: "Entenda o raciocínio",
-    d: "Não é sinal solto. Ele explica o porquê de cada decisão e a gestão de risco enquanto opera.",
+    t: "Aprenda a exaustão",
+    d: "Ele opera exaustão de movimento e mostra ao vivo onde o mercado perde força, por que entra, onde põe o stop e quando sai. Não é sinal solto.",
   },
   {
     n: "03",
@@ -57,8 +59,8 @@ export function Features() {
             <span className="text-primary">junto, ao vivo.</span>
           </h2>
           <p className="mt-4 text-body-lg text-fg-soft">
-            Todo pregão você senta do lado do Fabrício e vê o mercado pelos olhos de
-            quem opera de verdade.
+            Todo pregão você senta do lado do Fabrício, 20 anos de mini índice, e vê
+            o mercado pelos olhos de quem opera de verdade.
           </p>
         </motion.div>
 
@@ -88,6 +90,22 @@ export function Features() {
               </div>
             </motion.div>
           ))}
+        </motion.div>
+
+        <motion.div
+          initial={reduce ? false : { opacity: 0, y: 20 }}
+          whileInView={reduce ? undefined : { opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+          className="mt-12 flex flex-col items-start gap-5 rounded-card border border-white/10 bg-surface p-7 md:flex-row md:items-center md:justify-between md:p-8"
+        >
+          <p className="max-w-[48ch] text-body-lg text-fg">
+            Amanhã o mercado abre com você dentro da sala ou tentando entender sozinho
+            o que aconteceu. Se você opera pela Zeve, a sala é por nossa conta.
+          </p>
+          <Button href={WHATSAPP_URL} className="shrink-0">
+            Garantir meu lugar na sala
+          </Button>
         </motion.div>
       </Container>
     </section>
