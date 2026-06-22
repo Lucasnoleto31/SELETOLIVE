@@ -4,7 +4,11 @@ import { Container } from "@/components/Container";
 import { Button } from "@/components/ui/Button";
 import { Reveal } from "@/components/Reveal";
 import { cn } from "@/lib/utils";
-import { WHATSAPP_URL } from "@/lib/contact";
+import {
+  WHATSAPP_URL,
+  CHECKOUT_MENSAL_URL,
+  CHECKOUT_TRIMESTRAL_URL,
+} from "@/lib/contact";
 
 function Check() {
   return (
@@ -32,7 +36,23 @@ const bullets = [
   "Acesso à comunidade",
 ];
 
-const plans = [
+type Action = {
+  label: string;
+  href: string;
+  variant: "primary" | "secondary";
+};
+
+const plans: {
+  name: string;
+  price: string;
+  period: string;
+  altPrice: string;
+  forWho: string;
+  highlight: string;
+  featured: boolean;
+  actions: Action[];
+  note: string;
+}[] = [
   {
     name: "ZERO7",
     price: "Gratuito",
@@ -41,7 +61,9 @@ const plans = [
     forWho: "Para clientes com conta real ativa",
     highlight: "Você opera, você entra. Sem mensalidade.",
     featured: false,
-    cta: "Garantir vaga grátis",
+    actions: [
+      { label: "Garantir vaga grátis", href: WHATSAPP_URL, variant: "secondary" },
+    ],
     note: "Acesso gratuito à Sala AO VIVO enquanto a conta real estiver ativa.",
   },
   {
@@ -52,7 +74,9 @@ const plans = [
     forWho: "Para clientes da assessoria Zeve",
     highlight: "Atingiu 3.000 lotes no mês? O próximo mês é financiado pela Zeve.",
     featured: true,
-    cta: "Garantir vaga",
+    actions: [
+      { label: "Garantir vaga", href: WHATSAPP_URL, variant: "primary" },
+    ],
     note: "Ao atingir 3.000 lotes operados no mês pela assessoria Zeve, o mês seguinte é por nossa conta.",
   },
   {
@@ -63,7 +87,10 @@ const plans = [
     forWho: "Pra quem ainda não opera pela Genial via Zeve",
     highlight: "",
     featured: false,
-    cta: "Quero entrar",
+    actions: [
+      { label: "Assinar mensal", href: CHECKOUT_MENSAL_URL, variant: "secondary" },
+      { label: "Assinar trimestral", href: CHECKOUT_TRIMESTRAL_URL, variant: "secondary" },
+    ],
     note: "Quer parar de pagar? Migre sua conta pra Genial através da Zeve e seu acesso passa a ser bancado por nós.",
   },
 ];
@@ -141,14 +168,17 @@ export function Pricing() {
                   ))}
                 </ul>
 
-                <div className="mt-7 pt-1">
-                  <Button
-                    href={WHATSAPP_URL}
-                    variant={p.featured ? "primary" : "secondary"}
-                    className="w-full"
-                  >
-                    {p.cta}
-                  </Button>
+                <div className="mt-7 flex flex-col gap-2 pt-1">
+                  {p.actions.map((a) => (
+                    <Button
+                      key={a.label}
+                      href={a.href}
+                      variant={a.variant}
+                      className="w-full"
+                    >
+                      {a.label}
+                    </Button>
+                  ))}
                 </div>
 
                 <p className="mt-4 text-caption text-fg-muted">{p.note}</p>

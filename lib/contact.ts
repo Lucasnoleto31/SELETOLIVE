@@ -11,6 +11,10 @@ export const WHATSAPP_URL = `https://wa.me/${WHATSAPP_DIGITS}?text=${encodeURICo
   WHATSAPP_MESSAGE,
 )}`;
 
+// Checkout da Sala ao Vivo (4st)
+export const CHECKOUT_MENSAL_URL = "https://app.4st.com.br/checkout/NK024RSWUz";
+export const CHECKOUT_TRIMESTRAL_URL = "https://app.4st.com.br/checkout/bdSBIl1sFm";
+
 // Redes do Fabrício e comunidade
 export const INSTAGRAM_URL = "https://www.instagram.com/fabricio_goncalvez/";
 export const YOUTUBE_URL = "https://www.youtube.com/@fabriciogoncalvez";
