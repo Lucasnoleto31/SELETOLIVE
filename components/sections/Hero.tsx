@@ -54,19 +54,17 @@ export function Hero() {
               variants={item}
               className="text-balance text-display font-bold uppercase leading-[0.92]"
             >
-              Tá no pregão?
-              <br />
-              <span className="text-primary">Senta aqui.</span>
+              Sala ao vivo de trading com{" "}
+              <span className="text-primary">Fabrício Gonçalvez</span>
             </motion.h1>
 
             <motion.p
               variants={item}
               className="mt-6 max-w-prose text-body-lg text-fg-soft"
             >
-              Opere ao vivo com o <span className="text-fg">Fabrício Gonçalvez</span>.
-              Tela aberta, decisão na hora, todo pregão. A sala é{" "}
-              <span className="text-fg">por nossa conta</span> para quem opera com a
-              Zeve.
+              <span className="text-fg">Acompanhe cada operação em tempo real.</span>{" "}
+              Tela aberta, leitura de mercado, gestão de risco e decisões ao vivo
+              durante todo o pregão.
             </motion.p>
 
             <motion.div

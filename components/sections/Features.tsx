@@ -9,12 +9,12 @@ const steps = [
   {
     n: "01",
     t: "Opere ao vivo, junto",
-    d: "O Fabrício abre a tela e opera o pregão em tempo real. Você acompanha cada entrada e saída na hora, com dinheiro de verdade.",
+    d: "O Fabrício abre sua tela e opera o mercado em tempo real. Você acompanha as análises, as operações, a gestão de risco e os critérios por trás de cada decisão, além de poder fazer perguntas e tirar dúvidas ao vivo.",
   },
   {
     n: "02",
-    t: "Aprenda a exaustão",
-    d: "Ele opera exaustão de movimento e mostra ao vivo onde o mercado perde força, por que entra, onde põe o stop e quando sai. Não é sinal solto.",
+    t: "Aprenda as estratégias",
+    d: "Exaustão, Alaska e Square, além de todas as estratégias e habilidades que o ajudaram nos últimos 20 anos operando o mercado de day trade.",
   },
   {
     n: "03",
@@ -55,13 +55,27 @@ export function Features() {
             Como funciona
           </p>
           <h2 className="mt-3 text-balance text-h1 font-bold uppercase leading-[1.05]">
-            Não é curso gravado. É operar{" "}
-            <span className="text-primary">junto, ao vivo.</span>
+            Não é curso gravado. É{" "}
+            <span className="text-primary">mercado ao vivo.</span>
           </h2>
-          <p className="mt-4 text-body-lg text-fg-soft">
-            Todo pregão você senta do lado do Fabrício, 20 anos de mini índice, e vê
-            o mercado pelos olhos de quem opera de verdade.
-          </p>
+          <div className="mt-4 space-y-4 text-body text-fg-soft">
+            <p className="text-body-lg">
+              Todos os dias durante o pregão,{" "}
+              <span className="text-fg">Fabrício Gonçalvez</span> abre sua tela e
+              compartilha sua rotina operacional em tempo real. Acompanhe suas
+              análises, leitura de mercado, os pontos de entrada e saída, sua gestão
+              de risco e o processo de tomada de decisão que sustenta anos de
+              consistência no mercado de trading.
+            </p>
+            <p>
+              Mais do que aprender uma estratégia, você entende como ele pensa,
+              reage e se comporta diante das operações de day trade.
+            </p>
+            <p>
+              Durante toda a transmissão, você pode interagir, fazer perguntas e
+              esclarecer suas dúvidas diretamente ao vivo.
+            </p>
+          </div>
         </motion.div>
 
         <motion.div
@@ -101,7 +115,7 @@ export function Features() {
         >
           <p className="max-w-[48ch] text-body-lg text-fg">
             Amanhã o mercado abre com você dentro da sala ou tentando entender sozinho
-            o que aconteceu. Se você opera pela Zeve, a sala é por nossa conta.
+            o que aconteceu.
           </p>
           <Button href={WHATSAPP_URL} className="shrink-0">
             Garantir meu lugar na sala
