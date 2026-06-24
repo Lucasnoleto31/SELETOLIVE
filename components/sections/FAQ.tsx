@@ -13,11 +13,11 @@ const faqs = [
   },
   {
     q: "Quanto custa?",
-    a: "A sala é por nossa conta enquanto você operar pela Zeve (a partir de 3.000 lotes/mês). Se preferir só a sala, sem operar pela Zeve, ela sai por R$ 850/mês.",
+    a: "Depende de como você entra. Operando em conta real pela ZERO7, o acesso é gratuito. Operando pela Genial através da Zeve, a sala é por nossa conta (ao girar 3.000 lotes no mês, o mês seguinte é financiado pela Zeve). No público geral, R$ 997/mês ou R$ 2.497/trimestre. O grande desejo é que a sala seja isenta pra você.",
   },
   {
     q: "Como eu entro?",
-    a: "Fala com o atendimento, abre ou transfere sua conta para a Zeve e começa a operar. A gente te explica o passo a passo.",
+    a: "São três maneiras: procure seu assessor de contas na ZERO7, procure seu assessor de contas na Zeve, ou compre seu acesso direto pelo site.",
   },
   {
     q: "Preciso já ser experiente?",

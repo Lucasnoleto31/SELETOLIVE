@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { motion, useReducedMotion, type Variants } from "framer-motion";
 import Image from "next/image";
 
 import { Container } from "@/components/Container";
@@ -10,25 +11,66 @@ import { CountUp } from "@/components/CountUp";
 const testimonials = [
   {
     img: "/dep1.jpeg",
+    name: "Laís Sousa",
     quote:
       "Está sendo muito enriquecedor acompanhar um trader profissional operando em tempo real, com clareza, disciplina e método. Dá pra perceber o nível de profissionalismo e consistência no trabalho, o que traz muita confiança pra quem está acompanhando.",
   },
   {
     img: "/dep2.jpeg",
+    name: "Daniel Movio",
     quote:
       "Tenho usado a sala como quebra de paradigma. Fiz muitos cursos que vinham com aquela ideia engessada. Vendo o Fabrício operar, ganhei outros insights: gestão de risco, número de lotes no dia, setup de estratégias. Acabei evoluindo o meu próprio sistema. É muito positivo entender como um profissional pensa.",
   },
   {
     img: "/dep3.jpeg",
+    name: "João Vaz",
     quote:
       "Sobre a sala, eu só tenho elogios. Gosto muito de observar a forma como o Fabrício lê o mercado e pensa os movimentos. Mesmo ele não dando aula, só de ficar ali no dia a dia vendo, já me ensina muito pela confiança e experiência que ele tem. Tem feito muita diferença pra mim.",
   },
+];
+
+// candles em alta para a linha do tempo (dado de mercado: verde/vermelho permitido)
+const candles = [
+  { h: 32, up: true }, { h: 26, up: false }, { h: 38, up: true }, { h: 44, up: true },
+  { h: 36, up: false }, { h: 50, up: true }, { h: 57, up: true }, { h: 49, up: false },
+  { h: 60, up: true }, { h: 66, up: true }, { h: 58, up: false }, { h: 70, up: true },
+  { h: 76, up: true }, { h: 68, up: false }, { h: 80, up: true }, { h: 86, up: true },
+  { h: 82, up: false }, { h: 90, up: true }, { h: 96, up: true },
+];
+
+const milestones = [
+  { when: "Há 3 meses", title: "Piloto da Sala ao Vivo no ar." },
+  { when: "Agora", title: "Vagas abertas pra turma do Grupo Seleto." },
+  { when: "Até outubro", title: "Nova fase de testes do projeto." },
+  { when: "Fim do ano", title: "Rumo aos R$ 2 milhões." },
+];
+
+const groups = [
+  { n: "01", t: "Traders da ZERO7 operando em conta real." },
+  { n: "02", t: "Traders que operam pela Genial." },
+  { n: "03", t: "Público geral, com ressalvas." },
 ];
 
 type Media = { kind: "image" | "video"; src: string };
 
 export function Proof() {
   const [media, setMedia] = useState<Media | null>(null);
+  const reduce = useReducedMotion();
+
+  const candlesContainer: Variants = {
+    hidden: {},
+    show: { transition: { staggerChildren: 0.04 } },
+  };
+  const candleVar: Variants = reduce
+    ? { hidden: { opacity: 1, scaleY: 1 }, show: { opacity: 1, scaleY: 1 } }
+    : {
+        hidden: { opacity: 0, scaleY: 0 },
+        show: {
+          opacity: 1,
+          scaleY: 1,
+          transition: { duration: 0.4, ease: [0.22, 1, 0.36, 1] },
+        },
+      };
 
   useEffect(() => {
     if (media === null) return;
@@ -49,18 +91,118 @@ export function Proof() {
       className="relative scroll-mt-20 border-t border-white/5 py-20 md:py-28"
     >
       <Container>
-        <Reveal className="max-w-prose">
+        <Reveal className="max-w-[680px]">
           <p className="text-caption font-bold uppercase tracking-[0.14em] text-primary">
-            A comunidade
+            Seleto Live
           </p>
           <h2 className="mt-3 text-balance text-h1 font-bold uppercase leading-[1.05]">
-            Uma comunidade que já{" "}
-            <span className="text-primary">opera junto.</span>
+            Antes de mais nada,{" "}
+            <span className="text-primary">entenda os fatos.</span>
           </h2>
           <p className="mt-4 text-body-lg text-fg-soft">
-            Cerca de 200 traders no Zoom todo pregão, ao lado do Fabrício. Uma sala
-            próxima, onde dá pra acompanhar de perto e tirar dúvida no meio da operação.
+            Há três meses o Fabrício abriu um piloto da Sala ao Vivo para testar se o
+            formato faria sentido no longo prazo. O que apareceu foi muito além do
+            trade.
           </p>
+        </Reveal>
+
+        {/* o que o piloto revelou */}
+        <Reveal delay={0.05}>
+          <div className="mt-8 rounded-card border border-white/10 border-l-4 border-l-primary bg-surface p-6 md:p-8">
+            <p className="text-h3 font-semibold text-fg">
+              A sala ajudou vários traders a evoluírem, recuperarem a confiança e
+              voltarem a acreditar que dá pra ter consistência no day trade.
+            </p>
+            <p className="mt-3 max-w-[60ch] text-body text-fg-soft">
+              Alguns estavam anos sem conseguir e encontraram ali um novo caminho. Por
+              isso o Fabrício preferiu abrir espaço pra novos participantes, em vez de
+              transformar a sala em mais um produto de prateleira.
+            </p>
+          </div>
+        </Reveal>
+
+        {/* linha do tempo em candles */}
+        <Reveal delay={0.05}>
+          <div className="mt-12">
+            <motion.div
+              variants={candlesContainer}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true, margin: "-60px" }}
+              className="flex h-32 items-end gap-1 border-b border-white/10 sm:h-36 sm:gap-1.5"
+              aria-hidden
+            >
+              {candles.map((c, i) => (
+                <motion.div
+                  key={i}
+                  variants={candleVar}
+                  style={{ height: `${c.h}%`, transformOrigin: "bottom" }}
+                  className={`flex-1 rounded-[2px] ${c.up ? "bg-up" : "bg-down"}`}
+                />
+              ))}
+            </motion.div>
+
+            <div className="mt-6 grid grid-cols-2 gap-x-4 gap-y-6 md:grid-cols-4">
+              {milestones.map((m) => (
+                <div key={m.when}>
+                  <span className="flex items-center gap-2 text-caption font-bold uppercase tracking-wider text-primary">
+                    <span className="h-1.5 w-1.5 rounded-full bg-primary" />
+                    {m.when}
+                  </span>
+                  <p className="mt-2 text-small font-medium text-fg">{m.title}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </Reveal>
+
+        {/* quem pode entrar agora */}
+        <Reveal delay={0.05}>
+          <div className="mt-12">
+            <p className="text-caption font-bold uppercase tracking-[0.14em] text-fg-muted">
+              Hoje, só três grupos entram na sala
+            </p>
+            <div className="mt-4 grid gap-4 md:grid-cols-3">
+              {groups.map((g) => (
+                <div
+                  key={g.n}
+                  className="rounded-card border border-white/10 bg-surface p-6"
+                >
+                  <span className="font-mono text-small text-primary">{g.n}</span>
+                  <p className="mt-3 text-body font-medium text-fg">{g.t}</p>
+                </div>
+              ))}
+            </div>
+            <p className="mt-4 max-w-[680px] text-small text-fg-soft">
+              O acesso tem custo zero pra quem está construindo a jornada junto com o
+              grupo. Quem ainda não chegou lá entra, acompanha as operações, aprende
+              todo dia e evolui até chegar (por isso o público geral entra com
+              ressalvas).
+            </p>
+          </div>
+        </Reveal>
+
+        {/* fase de testes + meta */}
+        <Reveal delay={0.05}>
+          <div className="mt-8 flex flex-col gap-6 rounded-card border border-white/10 bg-surface p-7 md:flex-row md:items-center md:justify-between md:p-8">
+            <div className="max-w-[60ch]">
+              <span className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-3 py-1 text-caption font-bold uppercase tracking-wider text-accent">
+                Nova fase de testes até o fim de outubro
+              </span>
+              <p className="mt-3 text-body text-fg-soft">
+                Se a Seleto Live seguir gerando valor pros participantes e couber na
+                rotina do Fabrício, ela segue em frente. Caso contrário, encerra ao
+                fim do período.
+              </p>
+            </div>
+            <div className="shrink-0 md:text-right">
+              <p className="font-display text-h1 font-bold text-fg">R$ 2 milhões</p>
+              <p className="mt-1 text-small text-fg-soft">
+                a meta do Fabrício até o fim do ano.
+                <br className="hidden md:block" /> Esperamos ver você trade a trade.
+              </p>
+            </div>
+          </div>
         </Reveal>
 
         {/* stats */}
@@ -208,10 +350,10 @@ export function Proof() {
                   </span>
                   <span>
                     <span className="block text-small font-medium text-fg">
-                      Membro da sala
+                      {t.name}
                     </span>
                     <span className="block text-caption text-fg-muted">
-                      Feedback no WhatsApp · ver print
+                      Sala ao Vivo
                     </span>
                   </span>
                 </button>

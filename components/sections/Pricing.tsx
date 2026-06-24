@@ -33,6 +33,7 @@ const bullets = [
   "Sala ao vivo com o Fabrício, todo pregão",
   "Operações comentadas em tempo real",
   "Tira-dúvidas durante o pregão",
+  "Grupo de WhatsApp exclusivo do Seleto Live (já são 70 pessoas)",
   "Acesso à comunidade",
 ];
 
@@ -110,8 +111,9 @@ export function Pricing() {
             Escolha como entrar na <span className="text-primary">sala.</span>
           </h2>
           <p className="mt-4 text-body-lg text-fg-soft">
-            Se você opera pela Genial através da Zeve, a sala é por nossa conta. Se
-            ainda não opera, entra como público geral e migra quando quiser.
+            Se você opera pela Genial através da Zeve, tem a sala por nossa conta. Se
+            opera conta real da ZERO7, tem acesso gratuito. Se quer entrar nessa
+            jornada com ressalvas, entre como público geral.
           </p>
         </Reveal>
 
@@ -187,12 +189,6 @@ export function Pricing() {
           ))}
         </div>
 
-        <Reveal delay={0.1}>
-          <p className="mx-auto mt-8 max-w-prose text-center text-caption text-fg-muted">
-            Day trade é de altíssimo risco e pode gerar perdas superiores ao capital.
-            Não é promessa de ganho.
-          </p>
-        </Reveal>
       </Container>
     </section>
   );
