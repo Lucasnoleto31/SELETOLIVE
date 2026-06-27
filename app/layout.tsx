@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Space_Grotesk, Inter } from "next/font/google";
 import "./globals.css";
+import { VideoGate } from "@/components/VideoGate";
 
 const display = Space_Grotesk({
   subsets: ["latin"],
@@ -26,7 +27,10 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="pt-BR" className={`${display.variable} ${sans.variable}`}>
-      <body className="min-h-screen bg-bg text-fg antialiased">{children}</body>
+      <body className="min-h-screen bg-bg text-fg antialiased">
+        {children}
+        <VideoGate />
+      </body>
     </html>
   );
 }

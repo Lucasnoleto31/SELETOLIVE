@@ -190,9 +190,9 @@ export function Proof() {
                 Nova fase de testes até o fim de outubro
               </span>
               <p className="mt-3 text-body text-fg-soft">
-                Se a Seleto Live seguir gerando valor pros participantes e couber na
-                rotina do Fabrício, ela segue em frente. Caso contrário, encerra ao
-                fim do período.
+                Se o Seleto Live continuar gerando valor para os participantes e fizer
+                sentido dentro da rotina do Fabrício, o projeto seguirá em frente. Caso
+                contrário, será encerrado ao final do período de testes.
               </p>
             </div>
             <div className="shrink-0 md:text-right">
@@ -210,7 +210,7 @@ export function Proof() {
           <div className="mt-12 grid grid-cols-1 gap-8 sm:grid-cols-3 sm:gap-0 sm:divide-x sm:divide-white/10">
             <div className="sm:px-8 sm:first:pl-0">
               <div className="font-display text-h1 font-bold text-fg">
-                <CountUp to={1400} suffix="+" />
+                <CountUp to={1750} suffix="+" />
               </div>
               <p className="mt-1 text-small text-fg-soft">membros na comunidade</p>
             </div>
