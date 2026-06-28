@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Space_Grotesk, Inter } from "next/font/google";
 import "./globals.css";
 import { VideoGate } from "@/components/VideoGate";
+import { FloatingWhatsApp } from "@/components/FloatingWhatsApp";
 
 const display = Space_Grotesk({
   subsets: ["latin"],
@@ -16,10 +17,34 @@ const sans = Inter({
   display: "swap",
 });
 
+const TITLE = "Sala ao Vivo - Fabrício Gonçalvez";
+const DESCRIPTION =
+  "Opere o pregão ao lado do Fabrício Gonçalvez. Acompanhe cada decisão na tela, ao vivo.";
+
 export const metadata: Metadata = {
-  title: "Sala ao Vivo — Fabrício Gonçalvez | Zeve",
-  description:
-    "Opere o pregão ao lado do Fabrício Gonçalvez. Acompanhe cada decisão na tela, ao vivo. A sala é por nossa conta para quem opera com a Zeve.",
+  title: TITLE,
+  description: DESCRIPTION,
+  openGraph: {
+    title: TITLE,
+    description: DESCRIPTION,
+    type: "website",
+    locale: "pt_BR",
+    siteName: "Sala ao Vivo",
+    images: [
+      {
+        url: "/zeve-logo.png",
+        width: 320,
+        height: 234,
+        alt: "Sala ao Vivo - Fabrício Gonçalvez",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary",
+    title: TITLE,
+    description: DESCRIPTION,
+    images: ["/zeve-logo.png"],
+  },
 };
 
 export default function RootLayout({
@@ -29,6 +54,7 @@ export default function RootLayout({
     <html lang="pt-BR" className={`${display.variable} ${sans.variable}`}>
       <body className="min-h-screen bg-bg text-fg antialiased">
         {children}
+        <FloatingWhatsApp />
         <VideoGate />
       </body>
     </html>

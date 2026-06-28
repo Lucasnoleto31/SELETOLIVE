@@ -30,9 +30,9 @@ const config: Config = {
         sans: ["var(--font-sans)", "ui-sans-serif", "system-ui", "sans-serif"],
       },
       fontSize: {
-        display: ["clamp(2.5rem, 6vw, 4.5rem)", { lineHeight: "1.05", letterSpacing: "-0.02em" }],
-        h1: ["2.5rem", { lineHeight: "1.1", letterSpacing: "-0.02em" }],
-        h2: ["1.75rem", { lineHeight: "1.2", letterSpacing: "-0.01em" }],
+        display: ["clamp(2.25rem, 7vw, 4.5rem)", { lineHeight: "1.05", letterSpacing: "-0.02em" }],
+        h1: ["clamp(2rem, 1.3rem + 3vw, 2.5rem)", { lineHeight: "1.1", letterSpacing: "-0.02em" }],
+        h2: ["clamp(1.5rem, 1.2rem + 1.4vw, 1.75rem)", { lineHeight: "1.2", letterSpacing: "-0.01em" }],
         h3: ["1.25rem", { lineHeight: "1.3" }],
         "body-lg": ["1.125rem", { lineHeight: "1.6" }],
         body: ["1rem", { lineHeight: "1.6" }],

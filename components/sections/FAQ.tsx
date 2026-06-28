@@ -39,7 +39,7 @@ export function FAQ() {
   return (
     <section
       id="faq"
-      className="relative scroll-mt-20 border-t border-white/5 py-20 md:py-28"
+      className="relative scroll-mt-20 border-t border-white/5 py-16 md:py-28"
     >
       <Container>
         <Reveal className="max-w-prose">

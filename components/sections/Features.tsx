@@ -42,7 +42,7 @@ export function Features() {
       };
 
   return (
-    <section id="como-funciona" className="relative scroll-mt-20 py-20 md:py-28">
+    <section id="como-funciona" className="relative scroll-mt-20 py-16 md:py-28">
       <Container>
         <motion.div
           initial={reduce ? false : { opacity: 0, y: 20 }}

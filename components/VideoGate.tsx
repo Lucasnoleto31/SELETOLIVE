@@ -2,6 +2,8 @@
 
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/Button";
+import { WhatsappIcon } from "@/components/WhatsappIcon";
+import { WHATSAPP_URL } from "@/lib/contact";
 
 const VIDEO_ID = "VI0QxpDEj9U";
 const WAIT_SECONDS = 15;
@@ -120,6 +122,16 @@ export function VideoGate() {
             </div>
           )}
         </div>
+
+        <a
+          href={WHATSAPP_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="mt-6 inline-flex items-center gap-2 text-small font-semibold text-accent transition-colors hover:text-primary-hover"
+        >
+          <WhatsappIcon size={18} />
+          Falar com o atendimento
+        </a>
       </div>
     </div>
   );
